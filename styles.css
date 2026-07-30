@@ -7,6 +7,23 @@
   --accent-2: #24c7ff;
   --border: rgba(255, 255, 255, 0.14);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --page-bg: linear-gradient(135deg, #060816 0%, #0c1228 45%, #131b3b 100%);
+  --page-glow: rgba(36, 199, 255, 0.22);
+}
+
+body.light-theme {
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #6d28d9;
+  --accent-2: #0ea5e9;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.95);
+  --page-bg: linear-gradient(135deg, #f8fbff 0%, #eef4ff 45%, #fdf2ff 100%);
+  --page-glow: rgba(14, 165, 233, 0.16);
 }
 
 * {
@@ -26,14 +43,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
-    radial-gradient(circle at top left, rgba(36, 199, 255, 0.22), transparent 32%),
-    linear-gradient(135deg, #060816 0%, #0c1228 45%, #131b3b 100%);
+    radial-gradient(circle at top left, var(--page-glow), transparent 32%),
+    var(--page-bg);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 img {
   max-width: 100%;
+  height: auto;
+}
+
+p,
+h1,
+h2,
+h3,
+li,
+span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .skip-link {
@@ -91,6 +120,37 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+body.light-theme .header {
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
 .brand {
   color: white;
   text-decoration: none;
@@ -107,6 +167,10 @@ img {
   color: var(--muted);
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+body.light-theme .nav a {
+  color: #334155;
 }
 
 .nav a:hover {
@@ -134,14 +198,25 @@ img {
   width: min(100%, 1200px);
   margin: 0 auto;
   padding: 5rem clamp(1.1rem, 3vw, 2rem);
+  min-width: 0;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 2.5rem;
   align-items: center;
   min-height: 82vh;
+}
+
+.hero-copy,
+.hero-visual,
+.about-copy,
+.about-badges,
+.section-heading,
+.contact-form,
+.contact-info {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -228,9 +303,14 @@ h3 {
   border-color: var(--border);
 }
 
+body.light-theme .btn-secondary {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.8);
+}
+
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
   margin-top: 1.8rem;
 }
@@ -240,16 +320,28 @@ h3 {
 .contact-form,
 .contact-info,
 .about-badges .badge,
-.panel {
-  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+.panel,
+.consent-details {
+  background: linear-gradient(180deg, var(--surface), rgba(255,255,255,0.05));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+body.light-theme .hero-stats div,
+body.light-theme .card,
+body.light-theme .contact-form,
+body.light-theme .contact-info,
+body.light-theme .about-badges .badge,
+body.light-theme .panel,
+body.light-theme .consent-details {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.95));
 }
 
 .hero-stats div {
   padding: 1rem;
   border-radius: 20px;
   backdrop-filter: blur(16px);
+  min-width: 0;
 }
 
 .hero-stats strong {
@@ -328,7 +420,7 @@ h3 {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1.2rem;
 }
 
@@ -359,7 +451,7 @@ h3 {
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1rem;
 }
 
@@ -369,6 +461,7 @@ h3 {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255,255,255,0.1);
   min-height: 190px;
+  min-width: 0;
 }
 
 .process-step span {
@@ -410,14 +503,16 @@ h3 {
 
 .contact-wrap {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 1.3rem;
+  align-items: start;
 }
 
 .contact-form,
 .contact-info {
   border-radius: 24px;
   padding: 1.35rem;
+  min-width: 0;
 }
 
 label {
@@ -426,6 +521,60 @@ label {
   gap: 0.5rem;
   margin-bottom: 1rem;
   font-weight: 600;
+}
+
+.consent-group {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.consent-details {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.consent-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+}
+
+.consent-body {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-bottom: 0;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.5;
+  flex-wrap: wrap;
+}
+
+.checkbox-row span {
+  min-width: 0;
+  flex: 1 1 220px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  accent-color: var(--accent-2);
+}
+
+.checkbox-row span {
+  display: block;
 }
 
 input,
@@ -437,6 +586,7 @@ textarea {
   padding: 0.95rem 1rem;
   color: white;
   outline: none;
+  font: inherit;
 }
 
 input::placeholder,
@@ -451,7 +601,7 @@ textarea:focus {
 }
 
 .contact-info a {
-  color: white;
+  color: var(--text);
   text-decoration: none;
 }
 

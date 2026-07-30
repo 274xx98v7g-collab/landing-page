@@ -24,9 +24,14 @@
 
     <header class="header">
       <a href="#top" class="brand">North Studio</a>
-      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Светлая / тёмная тема">
+          <span class="theme-toggle-icon">☀️</span>
+        </button>
+        <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
       <nav class="nav" aria-label="Главная навигация">
         <a href="#services">Услуги</a>
         <a href="#process">Процесс</a>
@@ -178,6 +183,25 @@
 
             <label for="message">Что нужно</label>
             <textarea id="message" name="message" rows="4" placeholder="Коротко опишите задачу"></textarea>
+
+            <div class="consent-group">
+              <details class="consent-details">
+                <summary>Пользовательское соглашение</summary>
+                <div class="consent-body">
+                  <p>Оставляя заявку, вы подтверждаете, что ознакомились с условиями работы с сайтом и соглашаетесь на обработку предоставленных данных для связи и рассмотрения обращения.</p>
+                </div>
+              </details>
+
+              <label class="checkbox-row" for="agreement">
+                <input id="agreement" type="checkbox" name="agreement" required />
+                <span>Я прочитал(а) пользовательское соглашение и принимаю его условия.</span>
+              </label>
+
+              <label class="checkbox-row" for="personal-data">
+                <input id="personal-data" type="checkbox" name="personal-data" required />
+                <span>Я даю согласие на обработку моих персональных данных в целях рассмотрения заявки и связи со мной в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</span>
+              </label>
+            </div>
 
             <button class="btn btn-primary" type="submit">Отправить заявку</button>
             <p class="form-note" id="form-note" aria-live="polite">Мы ответим в течение рабочего дня.</p>
