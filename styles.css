@@ -32,6 +32,24 @@ img {
   max-width: 100%;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: white;
+  color: #050816;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 .page-glow {
   position: fixed;
   width: 300px;
@@ -354,6 +372,11 @@ textarea {
   padding: 0.95rem 1rem;
   color: white;
   outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 input:focus,

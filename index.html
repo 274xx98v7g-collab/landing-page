@@ -7,10 +7,18 @@
       name="description"
       content="Современный и продающий сайт с понятной структурой, сильными CTA и удобной адаптацией под телефон и компьютер."
     />
+    <meta name="keywords" content="лендинг, разработка сайта, сайт под ключ, адаптивный сайт, продажи через сайт" />
+    <meta name="theme-color" content="#050816" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="North Studio — сайты, которые продают" />
+    <meta property="og:description" content="Создаём современные, понятные и продающие сайты с сильными CTA и адаптивным дизайном." />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://your-username.github.io/landing-page/" />
     <title>North Studio — сайты, которые продают</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
     <div class="page-glow glow-one"></div>
     <div class="page-glow glow-two"></div>
 
@@ -26,7 +34,7 @@
       </nav>
     </header>
 
-    <main id="top">
+    <main id="main-content" tabindex="-1">
       <section class="hero section">
         <div class="hero-copy reveal">
           <p class="eyebrow">Личный подход. Мощный результат.</p>
@@ -128,20 +136,17 @@
         </div>
         <div class="contact-wrap">
           <form class="contact-form reveal" id="lead-form">
-            <label>
-              Имя
-              <input type="text" name="name" placeholder="Ваше имя" required />
-            </label>
-            <label>
-              Телефон
-              <input type="tel" name="phone" placeholder="+7 999 000 00 00" required />
-            </label>
-            <label>
-              Что нужно
-              <textarea name="message" rows="4" placeholder="Коротко опишите задачу"></textarea>
-            </label>
+            <label for="name">Имя</label>
+            <input id="name" type="text" name="name" placeholder="Ваше имя" autocomplete="name" required />
+
+            <label for="phone">Телефон</label>
+            <input id="phone" type="tel" name="phone" placeholder="+7 999 000 00 00" autocomplete="tel" inputmode="tel" required />
+
+            <label for="message">Что нужно</label>
+            <textarea id="message" name="message" rows="4" placeholder="Коротко опишите задачу"></textarea>
+
             <button class="btn btn-primary" type="submit">Отправить заявку</button>
-            <p class="form-note" id="form-note">Мы ответим в течение рабочего дня.</p>
+            <p class="form-note" id="form-note" aria-live="polite">Мы ответим в течение рабочего дня.</p>
           </form>
           <div class="contact-info reveal">
             <h3>Контакты</h3>
