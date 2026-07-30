@@ -19,8 +19,12 @@ html {
 
 body {
   margin: 0;
-  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background:
     radial-gradient(circle at top left, rgba(36, 199, 255, 0.22), transparent 32%),
     linear-gradient(135deg, #060816 0%, #0c1228 45%, #131b3b 100%);
@@ -79,7 +83,9 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5vw;
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 1rem clamp(1.1rem, 3vw, 2rem);
   backdrop-filter: blur(18px);
   background: rgba(5, 8, 22, 0.55);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -125,7 +131,9 @@ img {
 }
 
 .section {
-  padding: 5rem 5vw;
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 5rem clamp(1.1rem, 3vw, 2rem);
 }
 
 .hero {
@@ -152,23 +160,35 @@ p {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 4vw, 3.7rem);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin-bottom: 0.6rem;
+}
+
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .hero-text,
 .card p,
 .about-copy p,
 .contact-info p,
-.form-note {
+.form-note,
+.process-step p,
+.quote-box p {
   color: var(--muted);
   line-height: 1.7;
+  font-size: 1rem;
 }
 
 .hero-actions {
@@ -186,6 +206,8 @@ h2 {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
   border: 1px solid transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
@@ -299,6 +321,9 @@ h2 {
 .section-heading {
   margin-bottom: 2rem;
   text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards-grid {
@@ -311,6 +336,7 @@ h2 {
   padding: 1.45rem;
   border-radius: 24px;
   transition: transform 0.35s ease, border-color 0.35s ease;
+  min-height: 220px;
 }
 
 .card:hover {
@@ -342,6 +368,7 @@ h2 {
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border);
+  min-height: 190px;
 }
 
 .process-step span {
@@ -364,6 +391,9 @@ h2 {
   border: 1px solid var(--border);
   text-align: center;
   font-weight: 600;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-badges {
@@ -469,6 +499,10 @@ textarea:focus {
 @media (max-width: 760px) {
   .header {
     padding: 1rem 1.2rem;
+  }
+
+  .section {
+    padding: 3.5rem 1.2rem;
   }
 
   .menu-toggle {
