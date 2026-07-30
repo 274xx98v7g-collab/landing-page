@@ -202,19 +202,19 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.95rem 1.3rem;
+  padding: 0.95rem 1.35rem;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: -0.01em;
   border: 1px solid transparent;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
 .btn-primary {
@@ -241,9 +241,9 @@ h3 {
 .contact-info,
 .about-badges .badge,
 .panel {
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
 }
 
 .hero-stats div {
@@ -366,8 +366,8 @@ h3 {
 .process-step {
   padding: 1.25rem;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.1);
   min-height: 190px;
 }
 
@@ -388,7 +388,7 @@ h3 {
   padding: 1.2rem 1.4rem;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(36, 199, 255, 0.16));
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.12);
   text-align: center;
   font-weight: 600;
   max-width: 860px;
@@ -464,7 +464,7 @@ textarea:focus {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.visible {
