@@ -28,9 +28,12 @@
 
     <header class="header">
       <a href="#top" class="brand"><span class="brand-mark">AI</span>IRK</a>
-      <button type="button" class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-      </button>
+      <div class="header-controls">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Переключить светлую тему">☀️</button>
+        <button type="button" class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
       <nav id="site-nav" class="nav" aria-label="Главная навигация">
         <a href="#services">Услуги</a>
         <a href="#process">Процесс</a>
@@ -69,26 +72,35 @@
         </div>
 
         <div class="hero-visual reveal">
-          <div class="panel">
-            <div class="panel-top">
-              <span></span><span></span><span></span>
+          <div class="robot-frame">
+            <div class="robot-decor robot-decor-top"></div>
+            <div class="robot-head">
+              <div class="robot-eye"></div>
             </div>
-            <div class="panel-body">
-              <div class="mock-card large">
-                <p>Рост продаж</p>
-                <h3>+42% за 30 дней</h3>
-              </div>
-              <div class="mock-grid">
-                <div class="mock-card">
-                  <p>Скорость</p>
-                  <h4>1.2 сек</h4>
-                </div>
-                <div class="mock-card">
-                  <p>UX</p>
-                  <h4>5/5</h4>
-                </div>
+            <div class="robot-body">
+              <div class="robot-core"></div>
+              <div class="robot-grid">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
               </div>
             </div>
+          </div>
+          <div class="hero-panels">
+            <article class="mini-card">
+              <div class="card-icon" aria-hidden="true">🤖</div>
+              <strong>ИИ-агенты</strong>
+              <p>Работают за вас 24/7.</p>
+            </article>
+            <article class="mini-card">
+              <div class="card-icon" aria-hidden="true">⚡</div>
+              <strong>Контент</strong>
+              <p>Автоматически выходит во все каналы.</p>
+            </article>
+            <article class="mini-card">
+              <div class="card-icon" aria-hidden="true">📊</div>
+              <strong>Рост</strong>
+              <p>Больше заявок и выше прибыль.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -100,14 +112,17 @@
         </div>
         <div class="cards-grid">
           <article class="card reveal">
+            <div class="card-icon">🤖</div>
             <h3>ИИ-агенты</h3>
             <p>Автоматически обрабатываем заявки, отвечаем клиентам и ведём воронку.</p>
           </article>
           <article class="card reveal">
+            <div class="card-icon">⚡</div>
             <h3>Автоматизация</h3>
             <p>Убираем рутинные процессы и освобождаем время для роста бизнеса.</p>
           </article>
           <article class="card reveal">
+            <div class="card-icon">📊</div>
             <h3>Контент и аналитика</h3>
             <p>Генерируем релевантный контент и анализируем эффективность в реальном времени.</p>
           </article>
